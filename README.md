@@ -1,2 +1,1 @@
-# projects
-My experiments and test projects
+# My experiments and test projects
