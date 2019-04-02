@@ -2,24 +2,36 @@ import re
 import unittest
 
 
+# Define main function
 def bit_check(num):
+    # If input matches regex "from 0 to infinity" then
     if re.match(r"^\d+", str(num)):
+        # Convert integer to binary
         result = format(int(num), "b")
+        # Convert binary to string
         str(result)
+        # Check if string "result" has 11 or 00 in it
         if "11" in result or "00" in result:
+            # If string has 11 or 00 return False
             return False
         elif "11" not in result and "00" not in result:
+            # If string hasn't 11 and 00 in it, return True
             return True
         else:
+            # In other cases return False (if string has special or other characters etc)
             return False
 
 
+# Define the variable @table with 0 in 0 index
 table = [0]
 number = 1
 counter = 0
 indent = 20
+
+# Print headers of the table
 print("Decimal".ljust(20, ' '), "Binary")
 
+# Appending table with numbers that return True in bit_check() function
 while len(table) <= 22:
     result = format(number, "b")
     if number % 2 == 0:
@@ -39,6 +51,7 @@ while len(table) <= 22:
     counter += 1
 
 
+# Making test for bit_check() function
 class TestStringMethods(unittest.TestCase):
     def test_bit_check_1(self):
         self.assertTrue(bit_check(1))
@@ -90,5 +103,6 @@ class TestStringMethods(unittest.TestCase):
                 self.assertTrue(bit_check(i))
 
 
+# Run tests
 if __name__ == '__main__':
     unittest.main()
