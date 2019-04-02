@@ -32,7 +32,7 @@ indent = 20
 print("Decimal".ljust(20, ' '), "Binary")
 
 # Appending table with numbers that return True in bit_check() function
-while len(table) <= 22:
+while len(table) <= 20:
     result = format(number, "b")
     if number % 2 == 0:
         number = number * 2 + 1
@@ -53,29 +53,17 @@ while len(table) <= 22:
 
 # Making test for bit_check() function
 class TestStringMethods(unittest.TestCase):
-    def test_bit_check_1(self):
-        self.assertTrue(bit_check(1))
-
-    def test_bit_check_2(self):
-        self.assertTrue(bit_check(2))
-
-    def test_bit_check_3(self):
-        self.assertFalse(bit_check(3))
-
     def test_bit_check_negative_zero(self):
         self.assertTrue(bit_check(-0))
 
     def test_bit_check_positive_zero(self):
         self.assertTrue(bit_check(0))
 
-    def test_bit_check_char(self):
+    def test_bit_check_string(self):
         self.assertFalse(bit_check('test'))
 
     def test_bit_check_negative_5(self):
         self.assertFalse(bit_check(-5))
-
-    def test_bit_check_special_char(self):
-        self.assertFalse(bit_check("$"))
 
     def test_bit_check_char_and_number(self):
         self.assertFalse(bit_check("s2a1ff4"))
@@ -91,9 +79,6 @@ class TestStringMethods(unittest.TestCase):
 
     def test_bit_check_special_chars(self):
         self.assertFalse(bit_check("!@#$%^&*()[]"))
-
-    def test_bit_check_special_char(self):
-        self.assertFalse(bit_check("$"))
 
     def test_bit_check_loop(self):
         for i in range(2, max(table)):
