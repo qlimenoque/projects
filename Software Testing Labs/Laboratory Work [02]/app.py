@@ -80,6 +80,7 @@ class TestStringMethods(unittest.TestCase):
     def test_bit_check_special_chars(self):
         self.assertFalse(bit_check("!@#$%^&*()[]"))
 
+    # Test integers from min(table) to max(table)
     def test_bit_check_loop(self):
         for i in range(2, max(table)):
             if i not in table:
