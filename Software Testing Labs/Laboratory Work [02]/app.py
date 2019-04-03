@@ -41,16 +41,16 @@ while len(table) <= 10:
         number = number * 2 + 1
         table.append(int(number))
         if counter < 10:
-            print("{}. {} {}".format(counter, (str(number).ljust(indent, ' ')), result))
+            print("{}. {} {}".format(counter, (str(number).ljust(indent, ' ')), result + '1'))
         else:
-            print("{}. {} {}".format(counter, (str(number).ljust(indent - 1, ' ')), result))
+            print("{}. {} {}".format(counter, (str(number).ljust(indent - 1, ' ')), result + '0'))
     else:
         number *= 2
         table.append(int(number))
         if counter < 10:
-            print("{}. {} {}".format(counter, (str(number).ljust(indent, ' ')), result))
+            print("{}. {} {}".format(counter, (str(number).ljust(indent, ' ')), result + '0'))
         else:
-            print("{}. {} {}".format(counter, (str(number).ljust(indent - 1, ' ')), result))
+            print("{}. {} {}".format(counter, (str(number).ljust(indent - 1, ' ')), result + '1'))
     counter += 1
 
 
