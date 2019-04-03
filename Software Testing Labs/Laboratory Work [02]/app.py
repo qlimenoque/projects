@@ -1,5 +1,8 @@
 import re
 import unittest
+import sys
+
+arg = sys.argv[1]
 
 
 # Define main function
@@ -32,7 +35,7 @@ indent = 20
 print("Decimal".ljust(20, ' '), "Binary")
 
 # Appending table with numbers that return True in bit_check() function
-while len(table) <= 20:
+while len(table) <= 10:
     result = format(number, "b")
     if number % 2 == 0:
         number = number * 2 + 1
@@ -90,5 +93,12 @@ class TestStringMethods(unittest.TestCase):
 
 
 # Run tests
-if __name__ == '__main__':
-    unittest.main()
+suite = unittest.TestLoader().loadTestsFromTestCase(TestStringMethods)
+unittest.TextTestRunner(verbosity=2).run(suite)
+
+# Run main function bit_check()
+run = bit_check(arg)
+if run:
+    print("\nThe result is: True\n")
+else:
+    print("\nThe result is: False\n")
